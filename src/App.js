@@ -2,39 +2,58 @@ import React from 'react';
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
   theme,
+  FormControl,
+  FormLabel,
+  Input,
+  FormHelperText,
+  Select,
+  Flex,
+  Spacer,
+  Menu,
+  MenuButton,
+  IconButton,
+  MenuList,
+  MenuItem,
+  Heading,
+  Stack,
+  Center,
+  Button
+
 } from '@chakra-ui/react';
+import { faCopy, faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
-
+import { Image } from '@chakra-ui/react'
+import Nav from './Components/Nav';
+import Middle from './Components/Middle';
+import Sections from './Components/Sections';
+import {  Routes, Route } from 'react-router-dom' /* saufalar arası gezmeye yarar */
+import Python from './Components/Python';
 function App() {
   return (
+
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+    
+
+ 
+        <FormControl>
+        {/*   <Nav/> */}
+          <Middle  />
+          <Sections  />
+          <Routes>
+ 
+ <Route path={"/"} element={'Anasayfa'} />
+ <Route path={"/iletisim"} element={"iletisim"} />
+ <Route path={"/python"} element={<Python> </Python>}  />
+ 
+ 
+ 
+  </Routes>
+        </FormControl>
+      
+      
     </ChakraProvider>
   );
 }
